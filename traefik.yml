@@ -1,0 +1,27 @@
+entryPoints:
+  http:
+    address: ":80"
+  https:
+    address: ":443"
+    transport:
+      respondingTimeouts:
+        readTimeout: 600s
+        idleTimeout: 600s
+        writeTimeout: 600s
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    watch: true
+    network: proxy
+  file:
+    filename: /config.yml
+
+log:
+  level: INFO
+
+accessLog:
+  filePath: /access.log
+  bufferingSize: 100
+  format: json
