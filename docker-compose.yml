@@ -15,7 +15,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/traefik.yml:ro
       - ./config.yml:/config.yml:ro
+      - ./certs:/certs:ro
+    labels:
+      - "traefik.enable=true"
 
 networks:
   proxy:
     name: proxy
+    external: true

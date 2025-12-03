@@ -4,3 +4,7 @@ http:
       redirectScheme:
         scheme: https
         permanent: true
+
+  serversTransports:
+    wazuh-transport:
+      insecureSkipVerify: true
